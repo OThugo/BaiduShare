@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<mate http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<titel></titel>
+<mate name="Keywords" content="关键词" />
+<mate name="Description" content="" />
+<mate name="publishid" content="" />
+<mate name="Author" content="" />
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url("images/bg.jpg");
+	font-family: "微软雅黑";
+}
+
+.title {
+	width: 100%;
+	font: 30px/100px 软件雅黑;
+	color: #fff;
+	text-align: center;
+}
+
+.content {
+	background: #fff;
+	padding: 50px;
+}
+
+.lay {
+	width: 800px;
+	height: 170px;
+	margin: 0px auto;
+	line-height: 58px;
+	font-size: 18px;
+}
+
+.res {
+	height: 58px;
+	text-align: center;
+	position: relative;
+}
+
+.res i {
+	height: 1px;
+	background: #0000ff;
+	position: absolute;
+	left: 45px;
+	top: 30px;
+	right: 50px;
+	z-index: 1;
+	box-shadow: 0px 0px 1px #000;
+}
+
+.res span {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+	padding: 0px 8px;
+}
+
+.bdsharebuttonbox {
+	height: 60px;
+	backgound: #ffcc99;
+	font-size: 12px;
+	line-height: :; 0 px;
+	text-align: center;
+}
+
+.bdsharebuttonbox ul li {
+	list-style: none;
+	width: 60px;
+	height: 60px;
+	float: left;
+	margin: 0px 35px;
+}
+
+.bdsharebuttonbox ul li a {
+	width: 60px;
+	height: 60px;
+	display: block;
+}
+
+.bdsharebuttonbox ul li .bds_weixin {
+	background: url("images/gbRes_2.png") no-repeat center center/60px 60px;
+}
+
+.bdsharebuttonbox ul li .bds_qzone {
+	background: url("images/gbRes_4.png") no-repeat center center/60px 60px;
+}
+</style>
+</head>
+<body>
+	<div class="title">百度分享自定义网页</div>
+
+	<div class="content">
+		<div class="lay">
+			<div class="res">
+				<span>分享到</span><i></i>
+			</div>
+			<div class="bdsharebuttonbox" data-tag="share_1">
+				<ul>
+					<li><a href="#" data-cmd="weixin" title="分享到微信"
+						class="bds_weixin"></a>分享到微信</li>
+					<li><a class="bds_qzone" data-cmd="qzone" href="#"></a>分享到空间</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<!-- 引用jQuery官方类库文件 -->
+	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script>
+		/* 全局变量  文章ID  attr() 把当前选中的元素的属性“值”返回出来 */
+		var shareURL = "";
+		$(function() {
+			$(".bdsharebuttonbox ul li a").mouseover(function() {
+				shareURL = $(this).attr("data-cmd");
+				alert(shareURL);
+			});
+		});
+		/* cmd分享目标的ID
+		config为当前设置，返回值为更新后的设置
+		 */
+		
+		function SetShareURL(cmd.config){
+			if(shareURLL){
+				config.bdUrl=shareURL;
+			}
+			return config;
+		}
+		
+		
+		window._bd_share_config = {
+			/* 此处添加分享具体设置  可以设置什么? */
+			common : {
+				onBeforeClick:SetShareURL,
+				bdText : 'hugo超级帅！',
+				//bdDesc : '',	
+				bdUrl : 'http://www.baidu.com',
+				bdPic : 'http://img2.imgtn.bdimg.com/it/u=505742766,1788429344&fm=21&gp=0.jpg',
+				bdsize : "32",
+				},
+				share : [{
+					"tag" : "share_1",
+					"bdSize" : 32,
+				},{
+					"tag" : "share_2",
+					"bdSize" : 16,
+				}],
+		}
+
+		/* 以下为js加载部分 */
+	       with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+       </script>
+</body>
+</html>
